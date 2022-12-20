@@ -1,0 +1,37 @@
+﻿@model AlisverisListesiWeb.Models.Urun
+
+@{
+    ViewData["Title"] = "UrunGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ürün Ekle</h1>
+<br />
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    @Html.Label("Ürün ID")
+    @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Stok")
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("Foto URL")
+    @Html.TextBoxFor(x => x.FotoURL, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @*@Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.KategoriID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+
+}
+

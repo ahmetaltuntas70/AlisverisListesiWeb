@@ -1,0 +1,38 @@
+﻿
+@model List<AlisverisListesiWeb.Models.Kategori>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>KATEGORİ LİSTESİ</h2>
+<br />
+@using (Html.BeginForm())
+            {
+                <p>
+                    Ürün Adı: @Html.TextBox("p")
+                    <input type="submit" value="ARA" />
+                </p>
+            }
+<table class="table table-bordered">
+    <tr>
+        <th>KATEGORİ ID</th>
+        <th>KATEGORİ ADI</th>
+        <th>KATEGORİ AÇIKLAMA</th>
+        <th>KATEGORİ DURUM</th>
+        <th>GÜNCELLE</th>
+        <th>SİL</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.KategoriID</td>
+            <td>@x.KategoriAd</td>
+            <td>@x.KategoriAciklama</td>
+            <td>@x.Durum</td>
+            <td><a href="/Kategori/KategoriGetir/@x.KategoriID" class="btn btn-success">GÜNCELLE</a>
+            <td><a href="/Kategori/KategoriSil/@x.KategoriID" class="btn btn-danger">SİL</a>
+        </tr>
+    }
+</table>
+<a href="/Kategori/KategoriEkle/" class="btn btn-primary">YENİ KATEGORİ</a>

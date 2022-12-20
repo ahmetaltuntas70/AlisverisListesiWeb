@@ -1,0 +1,24 @@
+﻿@model AlisverisListesiWeb.Models.Kategori
+
+@{
+    ViewData["Title"] = "KategoriGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Ekle</h2>
+<br />
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.KategoriID)
+    @Html.TextBoxFor(x => x.KategoriID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KategoriAd)
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.KategoriAd, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.KategoriAciklama)
+    @Html.TextBoxFor(x => x.KategoriAciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+
+}
